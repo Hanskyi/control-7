@@ -1,61 +1,8 @@
 .container {
     margin: 40px auto 0;
     width: 600px;
+    height: 400px;
     display: flex;
     flex-basis: 50%;
-}
-
-.menu {
-    border: 1px solid black;
-    padding: 10px;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.menu-items {
-    display: flex;
-    border: 1px solid black;
-    width: 135px;
-    height: 50px;
     border-radius: 6px;
-    justify-content: center;
-    margin-bottom: 5px;
-}
-
-
-.menu-image {
-    width: 30px;
-    height: 40px;
-}
-
-.menu-name {
-    margin: 5px 0 0 10px;
-}
-
-.menu-price {
-    margin: 5px 0 0 10px;
-}
-
-.menu-info > p {
-    font-size: 15px;
-}
-
-
-
-
-
-.basket {
-    border: 1px solid black;
-    width: 100%;
-}
-
-.basket-info {
-    display: flex;
-    align-items: center;
-}
-
-.basket-count {
-    margin: 0 5px 0 auto;
 }
