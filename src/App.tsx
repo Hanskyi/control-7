@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
-import drinks from './images/drinks.png'
-import eat from './images/eat.png'
+import drinks from './images/drinks.png';
+import eat from './images/eat.png';
 import {nanoid} from "nanoid";
 import { IBasked, IItems} from "./types";
 
@@ -16,35 +16,46 @@ function App() {
     ]);
 
     const [basket, setBasket] = useState<IBasked[]>([]);
-    const [count, setCount] = useState(0)
+    const [total, setTotal] = useState(0)
 
     const onAddItem = (id: string) => {
-        items.forEach(item => {
-            if (id === item.id) {
-                setBasket(prevState => {
-                    const itemInBasket = prevState.find(basketEl => basketEl.name === item.name);
-                    if (itemInBasket) {
-                        return prevState.map(basketEl =>
-                            basketEl.name === item.name
-                                ? { ...basketEl, count: basketEl.count + 1, price: basketEl.price + item.price}
-                                : basketEl
-                        );
-                    } else {
-                        return [
-                            ...prevState,
-                            {
-                                id: nanoid(),
-                                name: item.name,
-                                price: item.price,
-                                count: 1
-                            }
-                        ];
-                    }
-                });
-            }
+        const selectedItem = items.find(item => item.id === id);
+
+        if (selectedItem) {
+            setBasket(prevState => {
+                const itemIndex = prevState.findIndex(el => el.name === selectedItem.name);
+                const copyBasket = [...prevState];
+
+                if (itemIndex !== -1) {
+                    copyBasket[itemIndex] = {
+                        ...copyBasket[itemIndex],
+                        count: copyBasket[itemIndex].count + 1,
+                        price: copyBasket[itemIndex].price + selectedItem.price
+                    };
+                } else {
+                    copyBasket.push({
+                        ...selectedItem,
+                        count: 1
+                    });
+                }
+
+                const newTotal = copyBasket.reduce((acc, item) => acc + item.price, 0);
+                setTotal(newTotal);
+
+                return copyBasket;
+            });
+        }
+    };
+
+    const onRemoveItem = (id: string) => {
+        setBasket(prevState => {
+            const filterBasket = prevState.filter(item => item.id !== id);
+            const newTotal = filterBasket.reduce((acc, item) => acc + item.price, 0);
+            setTotal(newTotal);
+            return filterBasket;
         });
     };
-    console.log(basket);
+
     return (
         <div className="container">
             <div className="menu">
@@ -61,12 +72,9 @@ function App() {
                         </div>
                     )
                 })}
-
-
             </div>
 
             <div className="basket">
-
                 {basket.map(el => {
                     return (
                         <div className="basket-info">
@@ -74,14 +82,13 @@ function App() {
                             <p className="basket-count">{el.count}</p>
                             <p className="basket-total">{el.price}</p>
                             <div>
-                                <button className="button-basket-delete">X</button>
+                                <button onClick={() => onRemoveItem(el.id)} className="button-basket-delete">X</button>
                             </div>
                         </div>
                     )
                 })}
+                <p>total: {total}</p>
             </div>
-
-
         </div>
     );
 }

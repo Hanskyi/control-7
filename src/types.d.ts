@@ -6,6 +6,7 @@ export interface IItems {
 }
 
 export interface IBasked {
+    id: string;
     name: string;
     price: number;
     count: number;
