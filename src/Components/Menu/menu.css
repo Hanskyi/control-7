@@ -1,5 +1,4 @@
 .menu {
-    border: 1px solid black;
     padding: 10px;
     width: 100%;
     margin-right: 10px;
@@ -8,14 +7,22 @@
 
 .menu-items {
     display: flex;
-    border: 1px solid black;
     height: 50px;
     border-radius: 6px;
     margin-bottom: 5px;
     align-items: center;
     cursor: pointer;
-    background: rgb(74,71,129);
-    background: linear-gradient(90deg, rgba(74,71,129,1) 0%, rgba(71,199,167,0.6845588577227766) 33%, rgba(0,212,255,1) 100%);
+    background: rgb(74, 71, 129);
+    background: linear-gradient(90deg, rgba(74, 71, 129, 1) 0%, rgba(61, 91, 83, 0.6845588577227766) 100%, rgba(0, 212, 255, 1) 100%);
+}
+
+.menu-items:hover {
+    background: cadetblue;
+    -webkit-box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2) inset;
+    -moz-box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2) inset;
+    box-shadow: 0px 0px 8px 7px rgba(34, 60, 80, 0.2) inset;
+    opacity: 0.8;
+    color: burlywood;
 }
 
 .menu-image {

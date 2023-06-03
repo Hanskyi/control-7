@@ -17,6 +17,7 @@ const items: IItems[] = [
     {id: nanoid(), name: 'Tea', price: 50, image: drinks},
     {id: nanoid(), name: 'Cola', price: 40, image: drinks},
 ];
+
 function App() {
     const [basket, setBasket] = useState<IBasked[]>([]);
     const [total, setTotal] = useState(0)
@@ -59,13 +60,18 @@ function App() {
     };
 
     return (
-        <div className="container">
-           <Menu items = {items} onAddItem ={onAddItem}/>
-            <div className="basket">
-            <BasketList basket={basket} onRemoveItem = {onRemoveItem} />
-                <p className="total">total: {total}</p>
+        <div className="background">
+            <div className="container">
+                <p className="menu-title">Menu</p>
+                <Menu items={items} onAddItem={onAddItem}/>
+                <div className="basket">
+                    <BasketList basket={basket} onRemoveItem={onRemoveItem}/>
+                    <p className="total">Total: {total} som</p>
+                </div>
+                <p className="basket-title">Basket</p>
             </div>
         </div>
+
     );
 }
 

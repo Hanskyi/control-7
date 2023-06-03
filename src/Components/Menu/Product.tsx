@@ -13,7 +13,7 @@ const Product: React.FC<IProps> = ({item,onAddItem}) => {
             </div>
             <div className="menu-info">
                 <p className="menu-name">{item.name}</p>
-                <p className="menu-price">Price: {item.price}</p>
+                <p className="menu-price">Price: {item.price} som</p>
             </div>
         </div>
     );

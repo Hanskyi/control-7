@@ -11,7 +11,7 @@ const Menu: React.FC<IProps> = ({items, onAddItem}) => {
     return (
         <div className="menu">
             {items.map(item => {
-                return <Product item={item} onAddItem={() => onAddItem(item.id)}/>
+                return <Product key={item.id} item={item} onAddItem={() => onAddItem(item.id)}/>
             })}
         </div>
     );

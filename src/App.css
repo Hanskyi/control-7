@@ -1,8 +1,38 @@
+.background {
+    background-image: url("images/background.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+ }
 .container {
-    margin: 40px auto 0;
-    width: 600px;
+    margin: 0 auto 0;
+    padding-top: 40px;
+    width: 650px;
     height: 400px;
     display: flex;
     flex-basis: 50%;
     border-radius: 6px;
+    position: relative;
+}
+
+.menu-title {
+    position: absolute;
+    rotate: -90deg;
+    top: 40%;
+    left: -40px;
+    font-size: 27px;
+    font-weight: 900;
+    color: burlywood;
+    background-color: black;
+}
+
+.basket-title {
+    position: absolute;
+    rotate: 90deg;
+    top: 40%;
+    right: -50px;
+    font-size: 27px;
+    background-color: black;
+    font-weight: 900;
+    color: burlywood;
 }

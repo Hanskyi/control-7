@@ -12,7 +12,7 @@ const BasketList:React.FC<IProps> = ({basket,onRemoveItem}) => {
           <>
               {basket.map(el => {
                   return (
-                     <BasketProduct el={el} onRemoveItem ={() => onRemoveItem(el.id)} />
+                     <BasketProduct key={el.id} el={el} onRemoveItem ={() => onRemoveItem(el.id)} />
                   )
               })}
           </>
