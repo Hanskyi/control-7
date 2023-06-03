@@ -9,15 +9,19 @@
     border: 1px solid black;
     padding: 10px;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .menu-items {
     display: flex;
     border: 1px solid black;
-    width: 120px;
+    width: 135px;
     height: 50px;
     border-radius: 6px;
     justify-content: center;
+    margin-bottom: 5px;
 }
 
 
@@ -53,5 +57,5 @@
 }
 
 .basket-count {
-    margin: 0 0 0 auto;
+    margin: 0 5px 0 auto;
 }
